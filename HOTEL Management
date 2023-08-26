@@ -1,0 +1,383 @@
+import csv
+name=''
+ph =0
+add=''
+checkin = ''
+checkout =''
+room =''
+price =0
+
+
+rn = 0
+cid =0
+day =0
+def Home():
+    print("WELCOME TO HOTEL OLYMPUS")
+    print("\t\t\t 1.Booking\n")
+    print("\t\t\t 2.Rooms Info\n")
+    print("\t\t\t 3.Restaurant\n")
+    print("\t\t\t 4.Record\n")
+    print("\t\t\t 0.Exit\n")
+  
+    ch=int(input("ENTER YOUR REQUIRED CHOICE HERE: "))
+     
+    if ch == 1:
+        print(" ")
+        Booking()
+     
+    elif ch == 2:
+        print(" ")
+        Rooms_Info()
+     
+    elif ch == 3:
+        print(" ")
+        Restaurant()
+  
+    elif ch == 4:
+        print(" ")
+        Record()
+        
+    elif ch==0:
+        exit()
+     
+    else:
+        print(" INVALID CHOICE !")
+        
+        
+def Customer():
+
+    import random
+    
+    global name,ph,add,checkin,checkout,day,room,price,rn,cid
+
+    print(" BOOKING ROOMS")
+    print(" ")
+    
+ 
+    
+    while True:
+        n=input("Name: ")
+        p=input("Phone No.: ")
+        a=input("Address: ")
+        
+        # checks if any field is not empty
+        if n!="" and p!=0 and a!="":
+            name=n
+            ph=p
+            add=a
+            
+                 
+        else:
+            print("\tName, Phone no. & Address cannot be empty..!!")
+            break
+        
+        checkin=input("Enter check in date in dd/mm/yyyy format:")
+        checkout=input("Enter check out date in dd/mm/yyyy format:")
+        day=int(input("Enter number of days staying:"))
+        
+        
+        print("----SELECT ROOM TYPE----")
+        print(" 1. Standard Non-AC")
+        print(" 2. Standard AC")
+        print(" 3. 3-Bed Non-AC")
+        print(" 4. 3-Bed AC")
+        print("\t\tPress 0 for Room Prices and Description")
+        
+        while True: 
+          ch=int(input("->ENTER THE NUMBER OF YOUR REQUIRED CHOICE: "))
+         
+          # if-conditions to display alloted room
+          # type and it's price
+          if ch==0:
+            print(" 1. Standard Non-AC - Rs. 3500\n")
+            print("Room amenities include: 1 Double Bed, Television, Telephone,Double-Door Cupboard, 1 Coffee table with 2 sofa, Balcony and an attached washroom with hot/cold water.\n") 
+            print("\n\n 2. Standard AC - Rs. 4000\n")
+            print("Room amenities include: 1 Double Bed, Television, Telephone, Double-Door Cupboard, 1 Coffee table with 2 sofa, Balcony and an attached washroom with hot/cold water + Window/Split AC.\n")
+            print("\n\n 3. 3-Bed Non-AC - Rs. 4500\n")
+            print("Room amenities include: 1 Double Bed + 1 Single Bed, Television, Telephone, a Triple-Door Cupboard, 1 Coffee table with 2 sofa, 1 Side table, Balcony with an Accent table with 2 Chair and an attached washroom with hot/cold water.\n") 
+            print("\n\n 4. 3-Bed AC - Rs. 5000")
+            print("Room amenities include: 1 Double Bed + 1 Single Bed, Television, Telephone, a Triple-Door Cupboard, 1 Coffee table with 2 sofa,  1 Side table, Balcony with an Accent table with 2 Chair and an attached washroom with hot/cold water + Window/Split AC.\n\n")
+            
+            
+          elif ch==1:
+            room='Standard Non-AC'
+            price=3500
+            break
+            
+          elif ch==2:
+            room='Standard AC'
+            price=4000
+            break
+            
+          elif ch==3:
+            room='3-Bed Non-AC'
+            price=4500
+            break
+            
+          elif ch==4:
+            room='3-Bed AC'
+            price=5000
+            break
+        
+            
+          else:
+            print(" INVALID CHOICE..!!")
+            print("Choose again...")
+            
+        # randomly generating room no. and customer
+        # id for customer
+        rn= random.randrange(40)+300
+        cid= random.randrange(40)+10
+        
+        totalp=price*day
+        
+        
+            
+         
+            
+        
+            
+        print("")
+        print("\t\t\t**ROOM BOOKED SUCCESSFULLY**\n")
+        print("CUSTOMER NAME: ",name)
+        print("PHONE NO.: ",ph)
+        print("ADDRESS: ",add)
+        print("CHECK-IN DATE: ",checkin)
+        print("CHECK-OUT DATE: ",checkout)
+        print("Number of days staying: ",day)
+        print("Room Type: ",room)
+        print("Room Charge per day: ",price)
+        print(" TOTAL ROOM CHARGE: ",totalp)
+        
+        
+        print("\nRoom No. - ",rn)
+        print("Customer Id - ",cid)
+        
+        
+        return totalp
+            
+            
+def Rooms_Info(): 
+
+    print("         ------ HOTEL ROOMS INFO ------") 
+
+    print("") 
+
+    print("STANDARD NON-AC") 
+
+    print("---------------------------------------------------------------") 
+
+    print("Room amenities include: 1 Double Bed, Television, Telephone,") 
+
+    print("Double-Door Cupboard, 1 Coffee table with 2 sofa, Balcony and") 
+
+    print("an attached washroom with hot/cold water.\n") 
+
+    print("STANDARD AC") 
+
+    print("---------------------------------------------------------------") 
+
+    print("Room amenities include: 1 Double Bed, Television, Telephone,") 
+
+    print("Double-Door Cupboard, 1 Coffee table with 2 sofa, Balcony and") 
+
+    print("an attached washroom with hot/cold water + Window/Split AC.\n") 
+
+    print("3-Bed NON-AC") 
+
+    print("---------------------------------------------------------------") 
+
+    print("Room amenities include: 1 Double Bed + 1 Single Bed, Television,") 
+
+    print("Telephone, a Triple-Door Cupboard, 1 Coffee table with 2 sofa, 1") 
+
+    print("Side table, Balcony with an Accent table with 2 Chair and an") 
+
+    print("attached washroom with hot/cold water.\n") 
+
+    
+
+    print("3-Bed AC") 
+
+    print("---------------------------------------------------------------") 
+
+    print("Room amenities include: 1 Double Bed + 1 Single Bed, Television,") 
+
+    print("Telephone, a Triple-Door Cupboard, 1 Coffee table with 2 sofa, ") 
+
+    print("1 Side table, Balcony with an Accent table with 2 Chair and an") 
+
+    print("attached washroom with hot/cold water + Window/Split AC.\n\n") 
+
+    print() 
+
+    n=input("Press 0 to go HOME ")
+
+    if n=="0": 
+
+        Home()
+    
+
+    else: 
+
+        exit() 
+
+def Restaurant():
+  print("******WELCOME TO HOTEL OLYMPUS********")
+  print("******RESTAURANT MENU***********")
+  print("********COUNT THE MEMORIES,NOT THE CALORIES!!!!!!********")
+  print("******open 6:00am 12:00pm**********")
+  print("\n\t BEVARAGES                                        ")
+  print("                                                         ")
+  print("1.regular tea----------------------20.0")
+  print("2.masala tea-----------------------25.0")
+  print("3.coffee---------------------------25.0")
+  print("\n\t BREAKFAST                                         ")
+  print("                                                              ")
+  print("4.paneer tikka---------------------------150.0")
+  print("5.plain dosa----------------------------50.0")
+  print("6.onion dosa------------------------------50.0")
+  print("7.chappathi and curry------------------------100.0")
+  print("8.aloo matar-----------------------------------90.0")
+  print("9.soup ------------------------------100.0")
+  print("10.plain roti-------------------------------------20.0")
+  print("11.tandoor roti----------------------------25.0")
+  print("12.butter naan---------------------------------25.0")
+  print("\n\t LUNCH                                          ")
+  print("                                                         ")
+  print("13.veg meals--------------------------------120.0 ")
+  print("14.non veg meals-----------------------------150.0")
+  print("15.dum biriyani---------------------------------200.0")
+  print("16.ghee rice------------------------------------120.0")
+  print("\n\t ITALIAN CUISINE                                      ")
+  print("                                                               ")
+  print("17.pizza------------------------------------------------200.0")
+  print("18.pasta---------------------------------------------------150.0")
+  print("19.creamy mushroom sizzlers-----------------------------------200.0")
+  print("20.garlic bread-----------------------------------------------100.0")
+  print("\n CHINESE CUISINE                                     ")
+  print("21.spring rolls------------------------------------------------110.")
+  print("22.baby corn lai style---------------------------------------110.0")
+  print("23.prawns honey chilly------------------------------------------110.0")
+  print("24.noodles-------------------------------------------------------110.0")
+  print("\n\tDINNER                                                      ")
+  print("                                                               ")
+  print("25.garlic butter chicken------------------------------------200.0")
+  print("26.kebabs-------------------------------------------------------110.0")
+  print("27.curried sausage and rice-------------------------------------200.0")
+  print("\n \tDESSERTS                                                  ")
+  print("                                                             ")
+  print("28.pastries------------------------------------100.0")
+  print("29.muffins----------------------------------100.0")
+  print("30.donuts-------------------------------------100.0")
+  print("31.icecream------------------------------------100.0")
+  print("32.cookies--------------------------------------------100.0")
+  print(" Press 0 if you have finished choosing")
+  r=0
+  while (True):
+
+            c=int(input("Enter the number of your choice:"))
+
+
+            if (c==1 or c==10):
+                d=int(input("Enter the quantity:"))
+                r=r+20.0*d
+
+            elif (c==2 or c==3 or c==11 or c==12):
+                 d=int(input("Enter the quantity:"))
+                 r=r+25.0*d
+
+            elif (c==5 or c==6):
+                 d=int(input("Enter the quantity:"))
+                 r=r+50.0*d
+
+            elif (c==8):
+                 d=int(input("Enter the quantity:"))
+                 r=r+90.0*d
+
+            elif (c<=32 and c>=28) or c==7 or c==9 or c==20:
+                 d=int(input("Enter the quantity:"))
+                 r=r+100.0*d
+
+            elif (c<=24 and c>=21) or c==26 :
+                 d=int(input("Enter the quantity:"))
+                 r=r+110.0*d
+                 
+            elif (c==13 or c==16):
+                 d=int(input("Enter the quantity:"))
+                 r=r+120.0*d
+                       
+            elif (c==4 or c==14 or c==18):
+                 d=int(input("Enter the quantity:"))
+                 r=r+150.0*d
+                 
+            elif(c==15 or c==17 or c==19 or c==25 or c==27):
+                d=int(input("Enter the quantity:"))
+                r=r+200.0*d
+                
+            elif(c==0):
+                break
+            else:
+                print("You've Entered an Invalid Item")
+  print ("Total food Cost=Rs",r,"\n")
+  
+  print ("\n\n** WE HOPE YOU ENJOYED OUR MEAL *\n\n" )
+  print ("\n**THANKYOU FOR VISITING AND HAVE A GREAT DAY*\n\n")
+  return r
+  
+      
+def Booking():
+   
+   total_rc=Customer()
+   y=input(" \n\n Press 0 if you want to go to Restaurant")
+   if y=="0":
+       rescharge=Restaurant()
+   else:
+       rescharge=0
+   f=open("Booking.csv","a",newline="")
+   
+   print("MODE OF PAYMENT:")
+   print("1.Credit/Debit Card")
+   print("2.Paytm/PhonePe")
+   print("3.Cash\n")
+   x=int(input("Enter required choice"))
+   
+   total_amt = total_rc + rescharge
+   
+   fwriter=csv.writer(f)
+   fwriter.writerow(["CUSTOMER ID","NAME","PHONE NO.","ADDRESS","ROOM NO.","CHECK-IN","CHECK-OUT","DAYS OF STAY","ROOM-TYPE","ROOM CHARGE PER DAY","TOTAL AMOUNT"])
+   fwriter.writerow([cid,name,ph,add,rn,checkin,checkout,day,room,price,total_amt])
+   f.close()
+   print("Generating Customer Bill\n")
+   print("---------------CUSTOMER BILL---------------\n")
+   print("----------------HOTEL OLYMPUS----------------\n")
+   print("Customer Name:",name)
+   print("Mobile Number:",ph)
+   print("Address:",add)
+   print("Check-In Date:",checkin)
+   print("Check-Out Date:",checkout)
+   print("Room Type:",room,"\n")
+   print("Restaurant Charge:",rescharge,"\n")
+   print("Room Charge:", total_rc, "\n")
+   print("TOTAL BILL AMOUNT:", total_amt, "\n")
+   print("------------------THANK YOU-------------------")
+   print("--------------PLEASE VISIT AGAIN-----------------")
+   n=input("Press 0 to go HOME")
+   if n=="0":
+       Home()
+   else:
+       exit()
+       
+def Record():
+    fout=open("Booking.csv","r")
+    freader=csv.reader(fout)
+    for row in freader:
+        print(row)
+    n=input("Press 0 to go HOME")
+    if n=="0":
+        Home()
+    else:
+        exit()
+        
+       
+Home()
